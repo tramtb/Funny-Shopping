@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: ''
+development:
+  <<: *default
+  database: FunnyShopping_development
+
+  test:
+  <<: *default
+  database: FunnyShopping_test
+
+production:
+  <<: *default
+  database: FunnyShopping_production
+  username: FunnyShopping
+  password: <%= ENV['FUNNYSHOPPING_DATABASE_PASSWORD'] %>
